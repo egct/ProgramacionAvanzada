@@ -45,6 +45,9 @@ public class SeleccionButacas extends javax.swing.JFrame {
         peliculaActual=peli;
         lblPeliActual.setText(peliculaActual);
         asignarpeli(peli);
+        reserva.setCod_pelicula(codpeli);
+        reserva.setCod_cliente(cliente.getCod_cliente());
+        System.out.println(">>>"+cliente.getCod_cliente());
         Runnable task = new Runnable() {
                 @Override
                 public void run() {
@@ -52,7 +55,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
                         Registry registro = LocateRegistry.getRegistry();
             
                         gestor= (InGestor) registro.lookup("ServerReservas");
-                        asientosOcupados=gestor.actualizar(reserva.getNumero_asiento());
+                        asientosOcupados=gestor.actualizar(reserva.getCod_pelicula());
                         bloquearAsientos();
                     } catch (Exception ex) {
                         System.out.println(ex.getMessage());
@@ -63,7 +66,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             service.scheduleAtFixedRate(task, 0, 1, TimeUnit.SECONDS);
             Registry registro = LocateRegistry.getRegistry();
             gestor= (InGestor) registro.lookup("ServerReservas");
-            asientosOcupados=gestor.actualizar(reserva.getNumero_asiento());
+            asientosOcupados=gestor.actualizar(reserva.getCod_pelicula());
             reserva.setCod_cliente(cliente.getCod_cliente());
             bloquearAsientos();
 
@@ -163,7 +166,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pantalla.jpg"))); // NOI18N
 
-        btn1.setBackground(new java.awt.Color(51, 255, 0));
+        btn1.setBackground(java.awt.Color.green);
         btn1.setText("A1");
         btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,7 +174,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn7.setBackground(new java.awt.Color(51, 255, 0));
+        btn7.setBackground(java.awt.Color.green);
         btn7.setText("B1");
         btn7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,7 +182,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn13.setBackground(new java.awt.Color(51, 255, 0));
+        btn13.setBackground(java.awt.Color.green);
         btn13.setText("C1");
         btn13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,7 +190,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn19.setBackground(new java.awt.Color(51, 255, 0));
+        btn19.setBackground(java.awt.Color.green);
         btn19.setText("D1");
         btn19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,7 +198,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn25.setBackground(new java.awt.Color(51, 255, 0));
+        btn25.setBackground(java.awt.Color.green);
         btn25.setText("E1");
         btn25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,7 +206,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn20.setBackground(new java.awt.Color(51, 255, 0));
+        btn20.setBackground(java.awt.Color.green);
         btn20.setText("D2");
         btn20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,7 +214,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn14.setBackground(new java.awt.Color(51, 255, 0));
+        btn14.setBackground(java.awt.Color.green);
         btn14.setText("C2");
         btn14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,7 +222,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn8.setBackground(new java.awt.Color(51, 255, 0));
+        btn8.setBackground(java.awt.Color.green);
         btn8.setText("B2");
         btn8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,7 +230,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn2.setBackground(new java.awt.Color(51, 255, 0));
+        btn2.setBackground(java.awt.Color.green);
         btn2.setText("A2");
         btn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,7 +238,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn3.setBackground(new java.awt.Color(51, 255, 0));
+        btn3.setBackground(java.awt.Color.green);
         btn3.setText("A3");
         btn3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -243,7 +246,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn9.setBackground(new java.awt.Color(51, 255, 0));
+        btn9.setBackground(java.awt.Color.green);
         btn9.setText("B3");
         btn9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,7 +254,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn15.setBackground(new java.awt.Color(51, 255, 0));
+        btn15.setBackground(java.awt.Color.green);
         btn15.setText("C3");
         btn15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,7 +262,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn21.setBackground(new java.awt.Color(51, 255, 0));
+        btn21.setBackground(java.awt.Color.green);
         btn21.setText("D3");
         btn21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -267,7 +270,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn22.setBackground(new java.awt.Color(51, 255, 0));
+        btn22.setBackground(java.awt.Color.green);
         btn22.setText("D4");
         btn22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -275,7 +278,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn16.setBackground(new java.awt.Color(51, 255, 0));
+        btn16.setBackground(java.awt.Color.green);
         btn16.setText("C4");
         btn16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -283,7 +286,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn10.setBackground(new java.awt.Color(51, 255, 0));
+        btn10.setBackground(java.awt.Color.green);
         btn10.setText("B4");
         btn10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -291,7 +294,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn4.setBackground(new java.awt.Color(51, 255, 0));
+        btn4.setBackground(java.awt.Color.green);
         btn4.setText("A4");
         btn4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -299,7 +302,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn5.setBackground(new java.awt.Color(51, 255, 0));
+        btn5.setBackground(java.awt.Color.green);
         btn5.setText("A5");
         btn5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -307,7 +310,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn11.setBackground(new java.awt.Color(51, 255, 0));
+        btn11.setBackground(java.awt.Color.green);
         btn11.setText("B5");
         btn11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -315,7 +318,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn17.setBackground(new java.awt.Color(51, 255, 0));
+        btn17.setBackground(java.awt.Color.green);
         btn17.setText("C5");
         btn17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -323,7 +326,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn23.setBackground(new java.awt.Color(51, 255, 0));
+        btn23.setBackground(java.awt.Color.green);
         btn23.setText("D5");
         btn23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -331,7 +334,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn26.setBackground(new java.awt.Color(51, 255, 0));
+        btn26.setBackground(java.awt.Color.green);
         btn26.setText("E6");
         btn26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -339,7 +342,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn24.setBackground(new java.awt.Color(51, 255, 0));
+        btn24.setBackground(java.awt.Color.green);
         btn24.setText("D6");
         btn24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -347,7 +350,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn18.setBackground(new java.awt.Color(51, 255, 0));
+        btn18.setBackground(java.awt.Color.green);
         btn18.setText("C6");
         btn18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -355,7 +358,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn12.setBackground(new java.awt.Color(51, 255, 0));
+        btn12.setBackground(java.awt.Color.green);
         btn12.setText("B6");
         btn12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -363,7 +366,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             }
         });
 
-        btn6.setBackground(new java.awt.Color(51, 255, 0));
+        btn6.setBackground(java.awt.Color.green);
         btn6.setText("A6");
         btn6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -640,185 +643,360 @@ public class SeleccionButacas extends javax.swing.JFrame {
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         // TODO add your handling code here:
+        
+        if(btn1.getBackground()!=Color.red){
+            
             reserva.setNumero_asiento(1);
             btn1.setSelected(true);
             btn1.setBackground(Color.red);
-                
+        }else{
+            reserva.setNumero_asiento(0);
+        //    btn1.setSelected(false);
+            btn1.setBackground(Color.green);
+        }      
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(2);
-        btn2.setSelected(true);
+        if(btn2.getBackground()!=Color.red){
+            reserva.setNumero_asiento(2);
+            btn2.setSelected(true);
+            btn2.setBackground(Color.red);
+        }else{
+            reserva.setNumero_asiento(0);
+         //   btn2.setSelected(false);
+            btn2.setBackground(Color.green);
+        }     
         
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(3);
-        btn3.setSelected(true);
-
+        if(btn3.getBackground()!=Color.red){
+            
+            reserva.setNumero_asiento(3);
+            btn3.setSelected(true);
+            btn3.setBackground(Color.red);
+        }else{
+            reserva.setNumero_asiento(0);
+        //    btn3.setSelected(false);
+            btn3.setBackground(Color.green);
+        }
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(4);
-        btn4.setSelected(true);
+        if(btn4.getBackground()!=Color.red){
+            reserva.setNumero_asiento(4);
+            btn4.setSelected(true);
+            btn4.setBackground(Color.red);
+        }else{
+           reserva.setNumero_asiento(0);
+         //   btn4.setSelected(false);
+            btn4.setBackground(Color.green); 
+        }
 
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(5);
-        btn5.setSelected(true);
-
+       if(btn5.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(5);
+            btn5.setSelected(true);
+            btn5.setBackground(Color.red);
+       }else{
+           reserva.setNumero_asiento(0);
+        //    btn5.setSelected(false);
+            btn5.setBackground(Color.green); 
+        }
+       
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(6);
-        btn6.setSelected(true);
-
+        if(btn6.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(6);
+            btn6.setSelected(true);
+            btn6.setBackground(Color.red);
+        }else{
+           reserva.setNumero_asiento(0);
+         //   btn6.setSelected(false);
+            btn6.setBackground(Color.green); 
+        }
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(7);
-        btn7.setSelected(true);
-
+        if(btn7.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(7);
+            btn7.setSelected(true);
+            btn7.setBackground(Color.red);
+        }else{
+            reserva.setNumero_asiento(0);
+         //   btn7.setSelected(false);
+            btn7.setBackground(Color.green); 
+        }
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(8);
-        btn8.setSelected(true);
-        
+        if(btn8.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(8);
+            btn8.setSelected(true);
+            btn8.setBackground(Color.red);
+        }else{
+             reserva.setNumero_asiento(0);
+         //   btn8.setSelected(false);
+            btn8.setBackground(Color.green); 
+        }        
 
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(9);
-        btn9.setSelected(true);
-
+         if(btn9.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(9);
+            btn9.setSelected(true);
+            btn9.setBackground(Color.red);
+         }else{
+                reserva.setNumero_asiento(0);
+         //   btn9.setSelected(false);
+            btn9.setBackground(Color.green); 
+         }
+         
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btn10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn10ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(10);
-        btn10.setSelected(true);
-
+        if(btn10.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(10);
+            btn10.setSelected(true);
+            btn10.setBackground(Color.red);
+        }else{
+            reserva.setNumero_asiento(0);
+         //   btn10.setSelected(false);
+            btn10.setBackground(Color.green); 
+        }
     }//GEN-LAST:event_btn10ActionPerformed
 
     private void btn11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn11ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(11);
-        btn11.setSelected(true);
+        if(btn11.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(11);
+            btn11.setSelected(true);
+            btn11.setBackground(Color.red);
+        }else{
+            reserva.setNumero_asiento(0);
+        //    btn11.setSelected(false);
+            btn11.setBackground(Color.green); 
+        }
 
     }//GEN-LAST:event_btn11ActionPerformed
 
     private void btn12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn12ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(12);
-        btn12.setSelected(true);
+        if(btn12.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(12);
+            btn12.setSelected(true);
+            btn12.setBackground(Color.red);
+        }else{
+            reserva.setNumero_asiento(0);
+         //   btn12.setSelected(false);
+            btn12.setBackground(Color.green); 
+        }
 
     }//GEN-LAST:event_btn12ActionPerformed
 
     private void btn13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn13ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(13);
-        btn13.setSelected(true);
+        if(btn13.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(13);
+            btn13.setSelected(true);
+            btn13.setBackground(Color.red);
+        }else{
+            reserva.setNumero_asiento(0);
+         //   btn13.setSelected(false);
+            btn13.setBackground(Color.green); 
+        }
 
     }//GEN-LAST:event_btn13ActionPerformed
 
     private void btn14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn14ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(14);
-        btn14.setSelected(true);
+        if(btn14.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(14);
+            btn14.setSelected(true);
+            btn14.setBackground(Color.red);
+        }else{
+            reserva.setNumero_asiento(0);
+         //   btn14.setSelected(false);
+            btn14.setBackground(Color.green); 
+        }
 
     }//GEN-LAST:event_btn14ActionPerformed
 
     private void btn15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn15ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(15);
-        btn15.setSelected(true);
+        if(btn15.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(15);
+            btn15.setSelected(true);
+            btn15.setBackground(Color.red);
+        }else{
+            reserva.setNumero_asiento(0);
+          //  btn15.setSelected(false);
+            btn15.setBackground(Color.green); 
+        }
 
     }//GEN-LAST:event_btn15ActionPerformed
 
     private void btn16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn16ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(16);
-        btn16.setSelected(true);
+        if(btn16.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(16);
+            btn16.setSelected(true);
+            btn16.setBackground(Color.red);
+        }else{
+            reserva.setNumero_asiento(0);
+         //   btn16.setSelected(false);
+            btn16.setBackground(Color.green); 
+        }
 
     }//GEN-LAST:event_btn16ActionPerformed
 
     private void btn17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn17ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(17);
-        btn17.setSelected(true);
+        if(btn17.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(17);
+            btn17.setSelected(true);
+            btn17.setBackground(Color.red);
+        }else{
+            reserva.setNumero_asiento(0);
+        //    btn17.setSelected(false);
+            btn17.setBackground(Color.green); 
+        }
 
     }//GEN-LAST:event_btn17ActionPerformed
 
     private void btn18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn18ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(18);
-        btn18.setSelected(true);
+        if(btn18.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(18);
+            btn18.setSelected(true);
+        }else{
+            reserva.setNumero_asiento(0);
+         //   btn18.setSelected(false);
+            btn18.setBackground(Color.green); 
+        }
 
     }//GEN-LAST:event_btn18ActionPerformed
 
     private void btn19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn19ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(19);
-        btn19.setSelected(true);
+        if(btn19.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(19);
+            btn19.setSelected(true);
+        }else{
+            reserva.setNumero_asiento(0);
+          //  btn19.setSelected(false);
+            btn19.setBackground(Color.green); 
+        }
 
     }//GEN-LAST:event_btn19ActionPerformed
 
     private void btn20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn20ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(20);
-        btn20.setSelected(true);
+        if(btn20.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(20);
+            btn20.setSelected(true);
+            btn20.setBackground(Color.red);
+        }else{
+            reserva.setNumero_asiento(0);
+        //    btn20.setSelected(false);
+            btn20.setBackground(Color.green); 
+        }
 
     }//GEN-LAST:event_btn20ActionPerformed
 
     private void btn21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn21ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(21);
-        btn21.setSelected(true);
+        if(btn21.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(21);
+            btn21.setSelected(true);
+            btn21.setBackground(Color.red);
+        }else{
+            reserva.setNumero_asiento(0);
+         //   btn21.setSelected(false);
+            btn21.setBackground(Color.green); 
+        }
 
     }//GEN-LAST:event_btn21ActionPerformed
 
     private void btn22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn22ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(22);
-        btn22.setSelected(true);
+        if(btn22.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(22);
+            btn22.setSelected(true);
+            btn22.setBackground(Color.red);
+        }else{
+            reserva.setNumero_asiento(0);
+         //   btn22.setSelected(false);
+            btn22.setBackground(Color.green); 
+        }
 
     }//GEN-LAST:event_btn22ActionPerformed
 
     private void btn23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn23ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(23);
-        btn23.setSelected(true);
+        if(btn23.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(23);
+            btn23.setSelected(true);
+        }else{
+            reserva.setNumero_asiento(0);
+          //  btn23.setSelected(false);
+            btn23.setBackground(Color.green); 
+        }
 
     }//GEN-LAST:event_btn23ActionPerformed
 
     private void btn24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn24ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(24);
-        btn24.setSelected(true);
+        if(btn24.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(24);
+            btn24.setSelected(true);
+            btn24.setBackground(Color.red);
+        }else{
+            reserva.setNumero_asiento(0);
+           // btn24.setSelected(false);
+            btn24.setBackground(Color.green); 
+        }
 
     }//GEN-LAST:event_btn24ActionPerformed
 
     private void btn25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn25ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(25);
-        btn25.setSelected(true);
+        if(btn25.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(25);
+            //btn25.setSelected(true);
+            btn25.setBackground(Color.red);
+        }else{
+            reserva.setNumero_asiento(0);
+           // btn25.setSelected(false);
+            btn25.setBackground(Color.green); 
+        }
 
     }//GEN-LAST:event_btn25ActionPerformed
 
     private void btn26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn26ActionPerformed
         // TODO add your handling code here:
-        reserva.setNumero_asiento(26);
-        btn26.setSelected(true);
+        if(btn26.getBackground()!=Color.red){ 
+            reserva.setNumero_asiento(26);
+            btn26.setSelected(true);
+            btn26.setBackground(Color.red);
+        }else{
+            reserva.setNumero_asiento(0);
+            //btn26.setSelected(false);
+            btn26.setBackground(Color.green); 
+        }
 
     }//GEN-LAST:event_btn26ActionPerformed
 

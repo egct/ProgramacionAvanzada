@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-11-2018 a las 04:02:19
+-- Tiempo de generación: 05-11-2018 a las 05:00:00
 -- Versión del servidor: 5.7.17-log
 -- Versión de PHP: 5.5.12
 
@@ -89,10 +89,9 @@ CREATE TABLE IF NOT EXISTS `reserva` (
 
 INSERT INTO `reserva` (`cod_reserva`, `numero_asiento`, `cod_cliente`, `cod_pelicula`) VALUES
 (1, 1, 1, 1),
-(5, 7, 0, 2),
-(4, 1, 1, 1),
-(3, 8, 1, 1),
-(2, 4, 2, 1);
+(4, 15, 2, 1),
+(3, 25, 2, 1),
+(2, 10, 1, 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
