@@ -24,10 +24,11 @@ public class ReservarAsientoDAO {
      Conexion conex=new Conexion();
        try {
            Statement orden=conex.getConexion().createStatement();
-           orden.executeUpdate("INSERT INTO reserva (cod_reserva,numero_asiento,cod_cliente) VALUES( "
+           orden.executeUpdate("INSERT INTO reserva (cod_reserva,numero_asiento,cod_cliente,cod_pelicula) VALUES("
                    +obtenerCodigoReserva()+","
                    +reserva.getNumero_asiento()+","
-                    +reserva.getCod_cliente()+")");
+                    +reserva.getCod_cliente()+","
+                     + reserva.getCod_pelicula()+")");
            JOptionPane.showMessageDialog(null, "Se ha registrado la reserva de asiento");
            orden.close();
            conex.desconectar();
@@ -68,7 +69,7 @@ public class ReservarAsientoDAO {
                
         try {
             java.sql.Statement stmt = conex.getConexion().createStatement();      
-            ResultSet rs = stmt.executeQuery("SELECT cod_reserva from reserva de asiento");                     
+            ResultSet rs = stmt.executeQuery("SELECT cod_reserva from reserva");                     
             while (rs.next()) {                         
                  codigos.add(rs.getInt(1));        
             }

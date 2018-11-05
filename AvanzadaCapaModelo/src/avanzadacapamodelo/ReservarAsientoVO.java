@@ -18,15 +18,18 @@ public class ReservarAsientoVO implements Remote, Serializable {
     private int cod_reserva;
     private int cod_cliente;
     private int numero_asiento;
+    private int cod_pelicula;
+    
 
     public ReservarAsientoVO() {
     }
     
     
-    public ReservarAsientoVO(int cod_reserva, int cod_cliente, int numero_asiento) {
+    public ReservarAsientoVO(int cod_reserva, int cod_cliente, int numero_asiento,int cod_pelicula) {
         this.cod_reserva = cod_reserva;
         this.cod_cliente = cod_cliente;
         this.numero_asiento = numero_asiento;
+        this.cod_pelicula=cod_pelicula;
     }
 
     public int getCod_reserva() {
@@ -51,6 +54,14 @@ public class ReservarAsientoVO implements Remote, Serializable {
 
     public void setNumero_asiento(int numero_asiento) {
         this.numero_asiento = numero_asiento;
+    }
+
+    public int getCod_pelicula() {
+        return cod_pelicula;
+    }
+
+    public void setCod_pelicula(int cod_pelicula) {
+        this.cod_pelicula = cod_pelicula;
     }
     
 }

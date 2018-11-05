@@ -16,7 +16,7 @@ import java.sql.SQLException;
 public class Conexion {
     static String bd = "cine";
     static String login = "root";
-    static String password ="";
+    static String password ="ecuador.2017";
     static String url = "jdbc:mysql://localhost/" + bd;
 
     Connection conn;
@@ -53,4 +53,8 @@ public class Conexion {
     public static void setUrl(String url) {
         Conexion.url = url;
     }
+    public static void  main(String[] arg){
+        Conexion con=new Conexion();
+    }
+            
 }

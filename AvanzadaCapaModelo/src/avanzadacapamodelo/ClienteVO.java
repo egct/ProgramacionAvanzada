@@ -14,11 +14,13 @@ import java.io.Serializable;
  */
 public class ClienteVO implements Serializable{
 
+    private int cod_cliente;
     private String nombre;
     private String apellido;
     private String usuario;
     private String contraseña;
-    public ClienteVO(String nombre, String apellido, String usuario, String contraseña) {
+    public ClienteVO(int cod_cliente,String nombre, String apellido, String usuario, String contraseña) {
+        this.cod_cliente=cod_cliente;
         this.nombre = nombre;
         this.apellido = apellido;
         this.usuario = usuario;
@@ -28,6 +30,15 @@ public class ClienteVO implements Serializable{
     public ClienteVO() {
     }
 
+    public int getCod_cliente() {
+        return cod_cliente;
+    }
+
+    public void setCod_cliente(int cod_cliente) {
+        this.cod_cliente = cod_cliente;
+    }
+
+    
     public String getNombre() {
         return nombre;
     }

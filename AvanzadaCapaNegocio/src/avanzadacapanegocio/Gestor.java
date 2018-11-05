@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
+import avanzadacapamodelo.*;
 
 /**
  *
@@ -42,7 +43,7 @@ public class Gestor extends UnicastRemoteObject implements Serializable,InGestor
     @Override
     public List obtenerPeliculas() throws RemoteException {
         PeliculasDAO vuelos=new PeliculasDAO();
-     return vuelos.obtenerVuelos();
+     return vuelos.obtenerpeliculas();
      
     }
 
