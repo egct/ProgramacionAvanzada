@@ -9,6 +9,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
+
 import avanzadacapanegocio.*;
 import java.net.MalformedURLException;
 
@@ -23,7 +24,7 @@ public class AvanzadaServidor {
      */
     public static void main(String[] args) throws RemoteException,MalformedURLException {
         // TODO code application logic here
-         Registry reg = LocateRegistry.createRegistry(1099);
+        Registry reg = LocateRegistry.createRegistry(1099);
         reg.rebind("ServerReservas",(InGestor) Gestor.getGestor());
         System.out.println("Servidor ON");
         System.out.println("Atendiendo las peticiones...");

@@ -8,7 +8,6 @@ package avanzadacapanegocio;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
-
 import avanzadacapamodelo.*;
 /**
  *

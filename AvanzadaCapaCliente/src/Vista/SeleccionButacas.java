@@ -6,8 +6,7 @@
 package Vista;
 
 import avanzadacapamodelo.*;
-import avanzadacapamodelo.ReservarAsientoVO;
-import avanzadacapanegocio.InGestor;
+import avanzadacapanegocio.*;
 import java.awt.Color;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -34,6 +33,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
      String peliculaActual;
      int bandera=0;
      int codpeli;
+     ClienteVO clientevo;
     /**
      * Creates new form Cliente
      */
@@ -41,7 +41,8 @@ public class SeleccionButacas extends javax.swing.JFrame {
         initComponents();        
      }
     public SeleccionButacas(String peli,ClienteVO cliente) throws RemoteException, NotBoundException {
-        initComponents();        
+        initComponents();   
+        clientevo=cliente;
         peliculaActual=peli;
         lblPeliActual.setText(peliculaActual);
         asignarpeli(peli);
@@ -617,7 +618,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
-        SeleccionPelicula c = new SeleccionPelicula();
+        SeleccionPelicula c = new SeleccionPelicula(clientevo);
         c.setVisible(true); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -882,6 +883,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
         if(btn18.getBackground()!=Color.red){ 
             reserva.setNumero_asiento(18);
             btn18.setSelected(true);
+            btn18.setBackground(Color.red);
         }else{
             reserva.setNumero_asiento(0);
          //   btn18.setSelected(false);
@@ -895,6 +897,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
         if(btn19.getBackground()!=Color.red){ 
             reserva.setNumero_asiento(19);
             btn19.setSelected(true);
+            btn19.setBackground(Color.red);
         }else{
             reserva.setNumero_asiento(0);
           //  btn19.setSelected(false);
@@ -950,6 +953,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
         if(btn23.getBackground()!=Color.red){ 
             reserva.setNumero_asiento(23);
             btn23.setSelected(true);
+            btn23.setBackground(Color.red);
         }else{
             reserva.setNumero_asiento(0);
           //  btn23.setSelected(false);
@@ -977,6 +981,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
         if(btn25.getBackground()!=Color.red){ 
             reserva.setNumero_asiento(25);
             //btn25.setSelected(true);
+            btn25.setSelected(true);
             btn25.setBackground(Color.red);
         }else{
             reserva.setNumero_asiento(0);
@@ -1050,7 +1055,7 @@ public class SeleccionButacas extends javax.swing.JFrame {
             case "LA MONJA":
             codpeli=2;
                 break;
-            case "venom":
+            case "VENOM":
                 codpeli=3;
             break;
             case "JURASSIC PARK":
